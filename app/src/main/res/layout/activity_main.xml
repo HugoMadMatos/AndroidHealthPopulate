@@ -73,7 +73,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="#F0F0F0"
+        android:background="#212121"
         android:padding="4dp">
 
         <TextView
@@ -81,6 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="10sp"
+            android:textColor="#FFFFFF"
             android:fontFamily="monospace" />
     </ScrollView>
 

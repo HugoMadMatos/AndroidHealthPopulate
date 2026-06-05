@@ -1,46 +1,46 @@
 # Health Seed Tool 🧬🌱
 
-Uma ferramenta standalone para desenvolvedores Android projetada para popular o **Android Health Connect** com dados de saúde realistas para fins de teste e depuração.
+A standalone developer tool for Android designed to seed **Android Health Connect** with realistic health data for testing and debugging purposes.
 
-## 🚀 Objetivo
-Facilitar o teste de aplicativos que consomem dados do Health Connect, permitindo a geração rápida de até 90 dias de histórico de dados simulados, eliminando a necessidade de gerar dados manualmente através de exercícios ou outros aplicativos.
+## 🚀 Goal
+Facilitate the testing of applications that consume data from Health Connect by allowing quick generation of up to 90 days of simulated data history, eliminating the need to generate data manually through exercise or other apps.
 
 ## 🛠 Tech Stack
-- **Linguagem:** Kotlin
-- **Arquitetura:** Single Activity
+- **Language:** Kotlin
+- **Architecture:** Single Activity
 - **UI:** ViewBinding & Material Design
-- **Concorrência:** Kotlin Coroutines
-- **SDK de Saúde:** `androidx.health.connect:connect-client:1.1.0-alpha12`
-- **Versão Mínima:** Android 8.0 (API 26)
+- **Concurrency:** Kotlin Coroutines
+- **Health SDK:** `androidx.health.connect:connect-client:1.1.0-alpha12`
+- **Minimum Version:** Android 8.0 (API 26)
 - **Target SDK:** 35
 
-## ✨ Funcionalidades
-- **Checagem de SDK:** Verifica automaticamente se o Health Connect está disponível ou se precisa de atualização.
-- **Gerenciamento de Permissões:** Fluxo integrado para solicitar permissões de escrita necessárias.
-- **População Customizável:** Botões individuais para popular categorias específicas de dados.
-- **Bulk Seed:** Botão único para popular todas as categorias de uma só vez (90 dias de dados).
-- **Limpeza Total:** Botão para apagar todos os registros criados pela ferramenta nos últimos 90 dias.
-- **Logs em Tempo Real:** Área de feedback visual mostrando o progresso das inserções.
+## ✨ Features
+- **SDK Status Check:** Automatically verifies if Health Connect is available or requires an update.
+- **Permission Management:** Integrated flow to request necessary Health Connect write permissions.
+- **Customizable Seeding:** Individual buttons to populate specific data categories.
+- **Bulk Seed:** A single button to populate all categories at once (90 days of data).
+- **Clear All Data:** Button to delete all records created by the tool within the last 90-day window.
+- **Real-time Logs:** Visual feedback area showing insertion progress.
 
-## 📊 Dados Suportados
-A ferramenta gera variações realistas (usando `Random`) para:
-1.  **Passos (Steps):** 4.000 a 14.000 passos por dia.
-2.  **Batimentos Cardíacos (Heart Rate):** Amostras a cada 2 horas (58 a 110 BPM).
-3.  **Sono (Sleep):** Sessões noturnas de 5.5h a 8.5h.
-4.  **Calorias Gastas:** 1.800 a 3.200 kcal por dia.
-5.  **Peso:** Flutuações diárias entre 68.0kg e 75.0kg.
-6.  **Exercícios:** 4 sessões por semana (Corrida e Musculação).
+## 📊 Supported Data
+The tool generates realistic variations (using `Random`) for:
+1.  **Steps:** 4,000 to 14,000 steps per day.
+2.  **Heart Rate:** Samples every 2 hours (58 to 110 BPM).
+3.  **Sleep:** Nightly sessions between 5.5h and 8.5h.
+4.  **Calories Burned:** 1,800 to 3,200 kcal per day.
+5.  **Weight:** Daily fluctuations between 68.0kg and 75.0kg.
+6.  **Exercises:** 4 sessions per week (Running and Strength Training).
 
-## 🚀 Como Usar
-1.  Clone o repositório:
+## 🚀 How to Use
+1.  Clone the repository:
     ```bash
     git clone git@github.com:HugoMadMatos/AndroidHealthPopulate.git
     ```
-2.  Abra o projeto no **Android Studio**.
-3.  Faça o build e instale no seu dispositivo físico ou emulador com Health Connect.
-4.  No app, clique em **Seed Data** (ou em um botão individual).
-5.  Conceda as permissões na tela do Health Connect (ative "Permitir Tudo").
-6.  Acompanhe o progresso nos logs.
+2.  Open the project in **Android Studio**.
+3.  Build and install on your physical device or emulator with Health Connect.
+4.  In the app, click **Seed Data** (or an individual button).
+5.  Grant permissions in the Health Connect screen (toggle "Allow All").
+6.  Monitor progress in the log area.
 
-## 📄 Licença
-Este projeto foi desenvolvido para fins de ferramentas de desenvolvimento. Sinta-se à vontade para clonar e modificar conforme necessário.
+## 📄 License
+This project was developed for developer tool purposes. Feel free to fork and modify as needed.
