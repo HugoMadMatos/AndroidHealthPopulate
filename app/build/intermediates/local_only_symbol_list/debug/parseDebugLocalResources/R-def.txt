@@ -1,0 +1,14 @@
+R_DEF: Internal format may change without notice
+local
+id btnClear
+id btnSeedCalories
+id btnSeedData
+id btnSeedExercise
+id btnSeedHeartRate
+id btnSeedSleep
+id btnSeedSteps
+id btnSeedWeight
+id progressBar
+id tvLog
+layout activity_main
+mipmap ic_launcher

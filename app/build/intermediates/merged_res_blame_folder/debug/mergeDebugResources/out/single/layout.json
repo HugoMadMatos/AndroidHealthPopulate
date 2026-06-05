@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/hugo/.gradle/daemon/9.0.0/com.example.healthseedapp-mergeDebugResources-33:/layout/activity_main.xml",
+        "source": "/Users/hugo/.gradle/daemon/9.0.0/com.example.healthseedapp-main-36:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.healthseedapp-mergeDebugResources-33:/layout/activity_main.xml",
+        "source": "com.example.healthseedapp-main-36:/layout/activity_main.xml"
+    }
+]
