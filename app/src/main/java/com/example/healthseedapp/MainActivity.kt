@@ -38,10 +38,10 @@ class MainActivity : AppCompatActivity() {
         PermissionController.createRequestPermissionResultContract()
     ) { granted ->
         if (granted.containsAll(permissions)) {
-            log("✅ Todas as permissões concedidas!")
+            log("✅ All permissions granted!")
         } else {
             val missing = permissions.filter { it !in granted }
-            log("❌ Faltam permissões: ${missing.size} pendentes.")
+            log("❌ Missing permissions: ${missing.size} pending.")
         }
     }
 
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         if (sdkStatus == HealthConnectClient.SDK_AVAILABLE) {
             healthConnectClient = HealthConnectClient.getOrCreate(this)
         } else {
-            log("Health Connect não disponível. Status: $sdkStatus")
+            log("Health Connect not available. Status: $sdkStatus")
             disableAllButtons()
             return
         }
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
             if (granted.containsAll(permissions)) {
                 seedAction()
             } else {
-                log("Solicitando permissões...")
+                log("Requesting permissions...")
                 requestPermissionLauncher.launch(permissions)
             }
         }
@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
     private suspend fun seedExercise() = performSeed("Exercise") { generateExercise() }
 
     private suspend fun seedAll() {
-        performSeed("Tudo (Bulk)") {
+        performSeed("All (Bulk)") {
             generateSteps() + generateHeartRate() + generateSleep() + 
             generateCalories() + generateWeight() + generateExercise()
         }
@@ -122,12 +122,12 @@ class MainActivity : AppCompatActivity() {
             binding.btnSeedData.isEnabled = false
         }
         try {
-            log("Populando $label...")
+            log("Seeding $label...")
             val records = withContext(Dispatchers.IO) { generator() }
             healthConnectClient.insertRecords(records)
-            log("✅ $label: ${records.size} registros inseridos.")
+            log("✅ $label: ${records.size} records inserted.")
         } catch (e: Exception) {
-            log("❌ Erro em $label: ${e.message}")
+            log("❌ Error in $label: ${e.message}")
         } finally {
             withContext(Dispatchers.Main) {
                 binding.progressBar.visibility = View.GONE
@@ -240,13 +240,13 @@ class MainActivity : AppCompatActivity() {
     private fun clearData() {
         lifecycleScope.launch(Dispatchers.IO) {
             try {
-                log("Limpando dados dos últimos 90 dias...")
+                log("Clearing data from the last 90 days...")
                 val filter = TimeRangeFilter.between(Instant.now().minus(90, ChronoUnit.DAYS), Instant.now())
                 val types = listOf(StepsRecord::class, HeartRateRecord::class, SleepSessionRecord::class, TotalCaloriesBurnedRecord::class, WeightRecord::class, ExerciseSessionRecord::class)
                 types.forEach { healthConnectClient.deleteRecords(it, filter) }
-                log("✅ Dados limpos.")
+                log("✅ Data cleared.")
             } catch (e: Exception) {
-                log("❌ Erro ao limpar: ${e.message}")
+                log("❌ Error clearing data: ${e.message}")
             }
         }
     }
